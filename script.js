@@ -1,41 +1,52 @@
-const form = document.getElementById('chat-form');
-const mytextInput = document.getElementById('mytext');
-const responseTextarea = document.getElementById('response');
+document.addEventListener("DOMContentLoaded", function () {
+    const searchButton = document.getElementById("search-button");
+    const gameSearchInput = document.getElementById("game-search");
+    const resultSection = document.getElementById("result");
+    const defaultGamesSection = document.getElementById("default-games");
+    const discoverSection = document.getElementById("discover-section");
+    const profileSection = document.getElementById("profile-section");
+    const discoverButton = document.getElementById("discover-button");
+    const gamesButton = document.getElementById("games-button");
+    const profileButton = document.getElementById("profile-button");
 
-const API_KEY = 'API Key';
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const mytext = mytextInput.value.trim();
+    // Initial display setup: show default games, hide other sections
+    defaultGamesSection.style.display = "block";
+    discoverSection.style.display = "none";
+    profileSection.style.display = "none";
 
-    if (mytext) {
-        try {
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${API_KEY}`,
-                },
-                body: JSON.stringify({
-                    model: 'gpt-4',
-                    messages: [{ role: 'user', content: mytext }],
-                    temperature: 1.0,
-                    top_p: 0.7,
-                    n: 1,
-                    stream: false,
-                    presence_penalty: 0,
-                    frequency_penalty: 0,
-                }),
-            });
+    // Show discover section when "Discover" is clicked
+    discoverButton.addEventListener("click", function () {
+        defaultGamesSection.style.display = "none";
+        discoverSection.style.display = "block";
+        profileSection.style.display = "none";
+        gameSearchInput.focus();
+    });
 
-            if (response.ok) {
-                const data = await response.json();
-                responseTextarea.value = data.choices[0].message.content;
-            } else {
-                responseTextarea.value = 'Error: Unable to process your request.';
-            }
-        } catch (error) {
-            console.error(error);
-            responseTextarea.value = 'Error: Unable to process your request.';
+    // Show default games when "Games" is clicked
+    gamesButton.addEventListener("click", function () {
+        defaultGamesSection.style.display = "block";
+        discoverSection.style.display = "none";
+        profileSection.style.display = "none";
+    });
+
+    // Show profile section when "Profile" is clicked
+    profileButton.addEventListener("click", function () {
+        defaultGamesSection.style.display = "none";
+        discoverSection.style.display = "none";
+        profileSection.style.display = "block";
+    });
+
+    // Search button functionality
+    searchButton.addEventListener("click", function () {
+        const query = gameSearchInput.value.trim();
+
+        if (query) {
+            // Show search results
+            resultSection.style.display = "block";
+            resultSection.innerHTML = `<h2>Results for "${query}"</h2><p>Example game details here...</p>`;
+        } else {
+            alert("Please enter a game name to search.");
         }
-    }
+    });
 });
+
