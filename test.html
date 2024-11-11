@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT 4 Test</title>
+    <title>Game Search</title>
+    <link rel="stylesheet" href="test.css">
 </head>
 <body>
-    <div>
-        <h1>ChatGPT 4 API Test</h1>
-        <form id="chat-form">
-            <label for="mytext">Enter your message:</label>
-            <input type="text" id="mytext" style="width: 50%;" required>
-            <button type="submit">Submit</button>
-        </form>
-        <div>
-            <h2>Response:</h2>
-            <textarea id="response" rows="20" style="width: 80%;" readonly></textarea>
+    <div class="container">
+        <h1>GameTrackr</h1>
+        
+        <!-- Default game list displayed on the main screen -->
+        <div id="default-games">
+            <p>Rocket League</p>
+            <p>Mario Kart</p>
+            <p>Call of Duty</p>
+            <p>Valorant</p>
+            <p>Fortnite</p>
         </div>
+
+        <!-- Discover section: initially hidden, shown when Discover is clicked -->
+        <div id="discover-section" style="display: none;">
+            <input type="text" id="game-search" placeholder="Enter a game name" />
+            <button id="search-button">Search</button>
+            <div id="result">
+                <p>Enter a game name to search.</p>
+            </div>
+        </div>
+
+        <!-- Profile section: initially hidden, shown when Profile is clicked -->
+        <div id="profile-section" style="display: none;">
+            <h2>Settings</h2>
+            <p>Profile Settings will be displayed here.</p>
+            <p><label for="username">Username: </label><input type="text" id="username" placeholder="Enter username"></p>
+            <p><label for="notifications">Notifications: </label>
+                <input type="checkbox" id="notifications"> Enable notifications</p>
+            <button id="save-settings">Save Settings</button>
+        </div>
+
+        <!-- Footer navigation for additional sections -->
+        <footer class="footer">
+            <button class="footer-button" id="games-button">Games</button>
+            <button class="footer-button" id="discover-button">Discover</button>
+            <button class="footer-button" id="profile-button">Profile</button>
+        </footer>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
