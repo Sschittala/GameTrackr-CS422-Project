@@ -103,4 +103,91 @@
  .footer-button:hover {
     color: #0056b3;
  }
+
+ /* Footer active button styling */
+.footer-button.active {
+   color: #fff;
+   background-color: #007bff;
+   border-radius: 8px;
+   padding: 8px;
+}
+
+/* Game Card Styling */
+.game-card {
+   background-color: #333;
+   color: #fff;
+   border-radius: 10px;
+   padding: 15px;
+   margin: 10px 0;
+   text-align: center;
+   cursor: pointer;
+   transition: transform 0.3s;
+}
+.game-card:hover {
+   transform: scale(1.05);
+}
+.game-card img {
+   width: 100%;
+   border-radius: 8px;
+   max-height: 200px;
+   object-fit: cover;
+}
+.game-card h3 {
+   font-size: 1.2em;
+   margin: 10px 0;
+}
+.game-card p {
+   font-size: 0.9em;
+   color: #bbb;
+}
+
+/* Modal Styling */
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1000;
+   padding-top: 50px;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+   background-color: #111;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 90%;
+   max-width: 500px;
+   border-radius: 10px;
+   color: white;
+}
+.close {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+   cursor: pointer;
+}
+.close:hover {
+   color: #fff;
+}
+
+/* Track Button */
+#track-game-button {
+   padding: 8px 12px;
+   margin-top: 15px;
+   background-color: #007bff;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+#track-game-button:hover {
+   background-color: #0056b3;
+}
+
+
  

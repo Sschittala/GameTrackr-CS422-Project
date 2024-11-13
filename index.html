@@ -4,12 +4,12 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Game Search</title>
-   <link rel="stylesheet" href="test.css">
+   <link rel="stylesheet" href="styles/test.css">
 </head>
 <body>
    <div class="container">
        <h1>GameTrackr</h1>
-      
+
        <!-- Default game list displayed on the main screen -->
        <div id="default-games">
            <p>Rocket League</p>
@@ -25,25 +25,43 @@
            <input type="text" id="game-search" placeholder="Enter a game name" />
            <button id="search-button">Search</button>
            <div id="result">
-               <p>Enter a game name to search.</p>
+               <p>Enter a game name or query to search.</p>
            </div>
        </div>
 
 
-       <!-- Profile section: initially hidden, shown when Profile is clicked -->
-       <div id="profile-section" style="display: none;">
+        <!-- Profile section: initially hidden, shown when Profile is clicked -->
+        <div id="profile-section" style="display: none;">
            <h2>Settings</h2>
            <p>Profile Settings will be displayed here.</p>
            <p><label for="username">Username: </label><input type="text" id="username" placeholder="Enter username"></p>
            <p><label for="notifications">Notifications: </label>
                <input type="checkbox" id="notifications"> Enable notifications</p>
            <button id="save-settings">Save Settings</button>
-       </div>
+        </div>
+
+        <!-- Result Section for Game Cards -->
+        <div id="result" class="game-cards-container">
+            
+        </div>
+
+        <!-- Modal for Full Game Details -->
+        <div id="game-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h3 id="modal-game-title"></h3>
+                <img id="modal-game-cover" alt="Game Cover">
+                <p><strong>Rating:</strong> <span id="modal-game-rating"></span></p>
+                <p id="modal-game-summary"></p>
+                <button id="track-game-button">Track Game</button>
+            </div>
+        </div>
+
 
 
        <!-- Footer navigation for additional sections -->
        <footer class="footer">
-           <button class="footer-button" id="games-button">Games</button>
+           <button class="footer-button active" id="games-button">Games</button>
            <button class="footer-button" id="discover-button">Discover</button>
            <button class="footer-button" id="profile-button">Profile</button>
        </footer>
