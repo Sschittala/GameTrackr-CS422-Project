@@ -13,6 +13,7 @@
 
        <!-- queue game list displayed on the main screen -->
        <div id="queue-games">
+        <h2 class="heading">Up next...</h2>
             <div id="queue" class="game-cards-container"></div>
        </div>
 
@@ -27,16 +28,73 @@
 
         <!-- Profile section: initially hidden, shown when Profile is clicked -->
         <div id="profile-section" style="display: none;">
-           <h2>Settings</h2>
-           <p>Profile Settings will be displayed here.</p>
-           <p><label for="username">Username: </label><input type="text" id="username" placeholder="Enter username"></p>
-           <p><label for="notifications">Notifications: </label>
-               <input type="checkbox" id="notifications"> Enable notifications</p>
-           <button id="save-settings">Save Settings</button>
+            <h2 class="heading">Profile</h2>
+            <div id="completed-list" class="game-cards-container"></div>
+            
         </div>
 
+        
+        <!--Modal to display full game details and allow addition to queue-->
+        <div id="game-detail-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2 id="game-title"></h2>
+                <img id="game-cover" alt="Game Cover">
+                <p><strong>Genres:</strong> <span id="game-genres"></span></p>
+                <p><strong>Game Modes:</strong> <span id="game-modes"></span></p>
+                <p><strong>Rating:</strong> <span id="game-rating"></span></p>
+                <p><strong>Platforms:</strong> <span id="game-platforms"></span></p> 
+                <p><strong>First Release Date:</strong> <span id="game-release-date"></span></p>
+                <p><strong>IGDB Website:</strong> <span id="game-url"></span></p>
+                <p id="game-summary"></p>
+                <h3>Screenshots:</h3>
+                <div id="game-screenshots"></div>
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button id="add-to-queue">Add to Queue</button>
+                    <button id="mark-as-played">Mark as Played</button>
+                </div>
+            </div>
+        </div>
 
+        <!--Modal to allow user to modify their tracked game-->
+        <div id="tracked-game-modal" class="modal" style="display: none;">
+            <div class="tracked-modal-content">
+                <span id="close-tracked-modal" class="close">&times;</span>
+                <h2 id="tracked-game-title"></h2>
+                <img id="tracked-game-cover" alt="Game Cover">
+                <p><strong>Status:</strong> <span id="tracked-game-status"></span></p>
+                <p><strong>Note:</strong> <span id="tracked-game-note"></span></p>
+                <p><strong>Platforms:</strong> <span id="tracked-game-platforms"></span></p>
+                <p><strong>IGDB Website:</strong> <span id="tracked-game-url"></span></p>
 
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button id="delete-button">Delete</button>
+                    <button id="edit-note-button">Edit Note</button>
+                </div>
+                <button id="mark-as-played-queue">Mark As Played</button>
+            </div>
+        </div>
+
+        <!--Modal to allow user to modify their completed game-->
+        <div id="completed-game-modal" class="modal" style="display: none;">
+            <div class="completed-modal-content">
+                <span id="close-completed-modal" class="close">&times;</span>
+                <h2 id="completed-game-title"></h2>
+                <img id="completed-game-cover" alt="Game Cover">
+                <p><strong>Status:</strong> <span id="completed-game-status"></span></p>
+                <p><strong>Note:</strong> <span id="completed-game-note"></span></p>
+                <p><strong>IGDB Website:</strong> <span id="completed-game-url"></span></p>
+
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button id="delete-button-profile">Delete</button>
+                    <button id="edit-note-button-profile">Edit Note</button>
+                </div>
+            </div>
+        </div>
+        
 
        <!-- Footer navigation for additional sections -->
        <footer class="footer">
@@ -48,7 +106,7 @@
             <i class="fas fa-user"></i>
         </button>
         
-               </footer>
+        </footer>
    </div>
 
    <script src="scripts/script.js"></script>
