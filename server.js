@@ -41,7 +41,7 @@ app.post("/get-game-recommendations", async (req, res) => {
                         {
                             role: "system",
                             content:
-                                "You are a helpful assistant for a game recommendation app. you will receiev a user's query and return a comma-seperated list of game titles. Make sure your enture response is this comma-seperated list (with no spaces after commas) and nothing else!",
+                                "You are a helpful assistant for a game recommendation app. you will receieve a string including the user's query and a list of titles of games they completed. The user's query and the list of their games will be seperated by the phrase'USER'S PLAY HISTORY:'You will then return a comma-seperated list of game titles. Make sure your enture response is this comma-seperated list (with no spaces after commas) and nothing else!",
                         },
                         {
                             role: "user",

@@ -145,14 +145,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Search button clicked!"); // debug
 
-        const query = gameSearchInput.value.trim();
+        let query = gameSearchInput.value.trim();
         
         if (query) {
             resultSection.innerHTML = "<p>Searching...</p>";
 
             try {
                 console.log("trying Chatgpt api"); // debug
-                // Step 1: Get game recommendations from ChatGPT API
+
+                // Step 1: Get game recommendations from ChatGPT considering the user's play history
+                const completedTitles = completedGames.map(game => game.name);
+                query = `${query} USER'S PLAY HISTORY: ${completedTitles.join(", ")}`;
+
                 const chatGPTResponse = await fetch(`${SERVER_URL}/get-game-recommendations`, {
                     method: "POST",
                     headers: {

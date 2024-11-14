@@ -194,6 +194,7 @@
 
 
 .modal {
+   z-index: 100;
    position: absolute;
    top: 6%;
    left: 6%;
@@ -211,6 +212,7 @@
 }
 
 .tracked-game-modal {
+   z-index: 100;
    position: absolute;
    top: 6%;
    left: 6%;
@@ -228,6 +230,7 @@
 }
 
 .completed-game-modal {
+   z-index: 100;
    position: absolute;
    top: 6%;
    left: 6%;
